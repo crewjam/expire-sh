@@ -43,7 +43,6 @@ func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 const indexText = `
-|=========|=========|=========|=========|=========|=========|=========|=========
 expire.sh checks your domain and certificate expirations
 
 Construct a calendar URL by providing a list of host names separated by commas, for 
@@ -96,6 +95,15 @@ You can also use the "quiet" parameter to suppress results for any domain or
 certificate that doesn't expire soon, which can be useful for use with a cron job.
 
 $ curl -v https://expire.sh/text/example.com?ttl=60d&quiet
+
+Issues
+------
+
+Source and issue tracker at https://github.com/crewjam/expire-sh. 
+
+* We have to do a bit of hacky text parsing to figure out when a domain expires,
+  which is certainly incomplete. If you encounter domains whose expiration dates
+  don't parse correctly, please file a bug (or better yet submit a PR!)
 
 `
 
